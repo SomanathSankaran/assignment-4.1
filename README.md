@@ -42,7 +42,7 @@ public class FileListing {
 		}
 	}
 }
-
+"REFER IMAGE FOR CODE AND OUTPUT"
 
 QN 2Modify the previous program to list all the files and sub-directories in the HDFS path
 recursively.
@@ -79,6 +79,8 @@ public class FileListing {
 		}
 	}
 }
+"REFER IMAGE FOR CODE AND OUTPUT"
+
 QN 3 Modify the previous program to take multiple HDFS paths (separated by space) and list all the
 files and sub-directories in those HDFS paths recursively.
 Since terminal will automatically take the arguement as seperated and when I gave two directories   /temp/user
@@ -112,3 +114,5 @@ public class FileListing {
 		}
 	}
 }
+"REFER IMAGE FOR CODE AND OUTPUT"
+
