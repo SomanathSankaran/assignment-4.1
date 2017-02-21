@@ -44,7 +44,8 @@ public class FileListing {
 }
 
 
-QN 2
+QN 2Modify the previous program to list all the files and sub-directories in the HDFS path
+recursively.
 
 import java.io.*;
 import org.apache.hadoop.conf.Configuration;
@@ -66,6 +67,39 @@ public class FileListing {
 			Configuration conf = new Configuration();
 			FileSystem fs = FileSystem.get(path.toUri(), conf);
 			RemoteIterator<LocatedFileStatus> rit=fs.listFiles(path,true);//true for recursive operation
+      while(rit.hasNext())
+      {
+      System.out.println(rit.next().getpath());
+			}
+
+		}
+		catch (IOException e)
+		{
+            e.printStackTrace();
+		}
+	}
+}
+QN 3 Modify the previous program to take multiple HDFS paths (separated by space) and list all the
+files and sub-directories in those HDFS paths recursively.
+Since terminal will automatically take the arguement as seperated and when I gave two directories   /temp/user
+all directories and sub directories will be listed 
+import java.io.*;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.FileStatus;
+
+public class FileListing {
+	public static void main(String[] args) {
+		int k=args.length//k has the total number of arguments
+		Path[] path = new Path[k];
+		for(int f=0;f<k;f++)
+		try
+		{
+		path[f]=path[args[f]];
+			Configuration conf = new Configuration();
+			FileSystem fs = FileSystem.get(path[f].toUri(), conf);
+			RemoteIterator<LocatedFileStatus> rit=fs.listFiles(path[f],true);//true for recursive operation
       while(rit.hasNext())
       {
       System.out.println(rit.next().getpath());
